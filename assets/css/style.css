@@ -1,0 +1,192 @@
+/*------------------------------------------------------------
+  1) THEME VARIABLES
+------------------------------------------------------------*/
+:root {
+  --primary-color: #001f3f;    /* deep navy */
+  --accent-color: #ffc107;     /* gold */
+  --text-color: #f8f9fa;       /* near-white */
+  --bg-gradient-start: #001f3f;/* deep navy */
+  --bg-gradient-end: #2c3e50;  /* slightly lighter navy */
+  --card-bg: #1a1a2e;          /* very dark navy-blue */
+  --card-text: #ececec;        /* off-white */
+  --btn-text: #001f3f;         /* text on accent buttons */
+  --footer-bg: #001f3f;
+  --footer-text: #f8f9fa;
+}
+
+/*------------------------------------------------------------
+  2) GLOBAL RESET & BODY
+------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/*------------------------------------------------------------
+  3) HERO HEADER
+------------------------------------------------------------*/
+.hero-header {
+  position: relative;
+  height: 60vh;
+  background: url('../images/university.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-header .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-header .logo {
+  width: 120px;
+  border: 3px solid var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.hero-header h1 {
+  margin-top: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/*------------------------------------------------------------
+  4) NAVBAR (if any used inside inner pages)
+------------------------------------------------------------*/
+.navbar-custom {
+  background-color: var(--primary-color) !important;
+}
+
+/*------------------------------------------------------------
+  5) CARDS (3D & HOVER EFFECT)
+------------------------------------------------------------*/
+.card-3d {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 1rem;
+  color: var(--card-text);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-3d .card-body {
+  transform: translateZ(0px);
+  transition: transform 0.4s ease;
+}
+
+.card-3d.hover-zoom:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-3d.hover-zoom:hover .card-body {
+  transform: translateZ(40px);
+}
+
+/*------------------------------------------------------------
+  6) BUTTONS
+------------------------------------------------------------*/
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--btn-text) !important;
+  border: 2px solid var(--accent-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-accent:hover {
+  background-color: transparent;
+  color: var(--accent-color) !important;
+  border: 2px solid var(--accent-color);
+}
+
+.btn-outline-light {
+  color: var(--text-color) !important;
+  border: 2px solid var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: var(--text-color);
+  color: var(--primary-color) !important;
+}
+
+/*------------------------------------------------------------
+  7) FORMS (INPUT FOCUS & LABEL FLOAT)
+------------------------------------------------------------*/
+.form-label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-control {
+  background-color: #ffffff;  /* pure white */
+  border: 1px solid #ccc;
+  color: #000000;              /* black text */
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+  background-color: #273645;
+  outline: none;
+  color: var(--text-color);
+}
+
+/*------------------------------------------------------------
+  8) TABLE (ADMIN VIEW BOOKINGS)
+------------------------------------------------------------*/
+.table-dark th {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/*------------------------------------------------------------
+  9) FOOTER
+------------------------------------------------------------*/
+.footer-dark {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*------------------------------------------------------------
+  10) MEDIA QUERIES
+------------------------------------------------------------*/
+@media (max-width: 768px) {
+  .hero-header {
+    height: 50vh;
+  }
+  .hero-header h1 {
+    font-size: 2rem;
+  }
+}
